@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: booking-service
+
+#DB Configuration
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Jyoti-Setu
+    username: ${db.user:user}
+    password: 123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
