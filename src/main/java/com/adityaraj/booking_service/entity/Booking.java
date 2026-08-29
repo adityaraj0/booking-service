@@ -26,7 +26,7 @@ public class Booking {
     private UUID productId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "productTypeId", nullable = true)
+    @JoinColumn(name = "product_type_id", nullable = true)
     private ProductType productType;
 
 
@@ -37,6 +37,10 @@ public class Booking {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Status status;
+
+//    @Id
+//    private UUID paymentId;
+//    @ManyToOne(fetch = FetchType.LAZY)
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

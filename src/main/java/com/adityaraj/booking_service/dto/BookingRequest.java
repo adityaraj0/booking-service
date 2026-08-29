@@ -14,11 +14,13 @@ public class BookingRequest {
     private UUID userId;
 
     @NotNull
-    private UUID productId;
+    private  UUID productId;
 
     @NotNull
     private ProductType productType;
 
     private LocalDateTime startTime;
     private LocalDateTime endTime;
+
+//    private UUID paymentId;
 }

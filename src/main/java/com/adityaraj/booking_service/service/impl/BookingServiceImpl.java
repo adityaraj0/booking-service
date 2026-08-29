@@ -10,13 +10,14 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Service
 
 public class BookingServiceImpl implements BookingService {
 
-    private BookingRepository bookingRepository;
+    private final BookingRepository bookingRepository;
 
     public BookingServiceImpl(BookingRepository bookingRepository) {
         this.bookingRepository = bookingRepository;
@@ -45,6 +46,51 @@ public class BookingServiceImpl implements BookingService {
 
         return booking == null ? null : generateBookingResponse(booking);
 
+    }
+
+    @Override
+    public List<BookingResponse> getBookingByUserId(UUID userId){
+        List<Booking> bookings = bookingRepository.findByUserId(userId);
+        return bookings.stream()
+                .map(this::generateBookingResponse)
+                .toList();
+    }
+
+    @Override
+    public List<BookingResponse> getBookings() {
+        List<Booking> bookings = bookingRepository.findAll();
+
+        return  bookings.stream()
+                .map(this::generateBookingResponse)
+                .toList();
+    }
+
+    @Override
+    public BookingResponse updateBooking(UUID id, BookingRequest booking) {
+        Booking existingBooking = bookingRepository.findById(id).orElse(null);
+        if (existingBooking == null) {
+            return null;
+        }
+        existingBooking.setStartTime(booking.getStartTime());
+        existingBooking.setEndTime(booking.getEndTime());
+        existingBooking.setUpdatedAt(LocalDateTime.now());
+
+        Booking updatedBooking = bookingRepository.save(existingBooking);
+        return generateBookingResponse(updatedBooking);
+    }
+
+    @Override
+    public void cancelBooking(UUID id) {
+        Booking booking = bookingRepository.findById(id).orElse(null);
+
+        if (booking == null) {
+            return;
+        }
+
+        booking.setStatus(Status.CANCELLED);
+        booking.setUpdatedAt(LocalDateTime.now());
+
+        bookingRepository.save(booking);
     }
 
 
