@@ -72,7 +72,7 @@ public class BookingController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<BookingResponse> deleteBooking(@PathVariable UUID id) {
+    public ResponseEntity<BookingResponse> cancelBooking(@PathVariable UUID id) {
         BookingResponse booking = bookingService.getBookingById(id);
         if (booking == null) {
             return ResponseEntity.notFound().build();

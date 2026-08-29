@@ -1,17 +1,17 @@
 package com.adityaraj.booking_service.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "product-type", schema = "booking-service")
+@Table(name = "product_type", schema = "booking-service")
 public class ProductType {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String name;
 }

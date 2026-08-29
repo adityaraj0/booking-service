@@ -19,6 +19,7 @@ public class BookingServiceImpl implements BookingService {
 
     private final BookingRepository bookingRepository;
 
+
     public BookingServiceImpl(BookingRepository bookingRepository) {
         this.bookingRepository = bookingRepository;
     }
@@ -27,8 +28,8 @@ public class BookingServiceImpl implements BookingService {
     public BookingResponse createBooking(BookingRequest booking) {
         Booking createBooking = new Booking();
         createBooking.setUserId(booking.getUserId());
-        createBooking.setProductId(booking.getProductId());
-        createBooking.setProductType(booking.getProductType());
+        createBooking.setProduct(booking.getProduct());
+        //createBooking.setProductType(booking.getProductType());
         createBooking.setStartTime(booking.getStartTime());
         createBooking.setEndTime(booking.getEndTime());
         createBooking.setStatus(Status.CREATED);
@@ -98,8 +99,8 @@ public class BookingServiceImpl implements BookingService {
         BookingResponse bookingResponse = new BookingResponse();
         bookingResponse.setId(booking.getId());
         bookingResponse.setUserId(booking.getUserId());
-        bookingResponse.setProductId(booking.getProductId());
-        bookingResponse.setProductType(booking.getProductType());
+        bookingResponse.setProduct(booking.getProduct());
+        //bookingResponse.setProductType(booking.getProductType());
         bookingResponse.setStartTime(booking.getStartTime());
         bookingResponse.setEndTime(booking.getEndTime());
         bookingResponse.setStatus(booking.getStatus());

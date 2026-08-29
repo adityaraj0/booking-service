@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class ProductTypeRequest {
-    private String productName;
+    private String name;
 }

@@ -22,12 +22,13 @@ public class Booking {
     @Column(nullable = false)
     private UUID userId;
 
-    @Column(nullable = false)
-    private UUID productId;
-
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_type_id", nullable = true)
-    private ProductType productType;
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
+
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "product_type_id", nullable = true)
+//    private ProductType productType;
 
 
     private LocalDateTime startTime;
