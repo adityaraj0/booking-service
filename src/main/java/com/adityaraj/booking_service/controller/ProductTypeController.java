@@ -1,6 +1,5 @@
 package com.adityaraj.booking_service.controller;
 
-import com.adityaraj.booking_service.dto.BookingResponse;
 import com.adityaraj.booking_service.dto.ProductTypeRequest;
 import com.adityaraj.booking_service.dto.ProductTypeResponse;
 import com.adityaraj.booking_service.entity.ProductType;

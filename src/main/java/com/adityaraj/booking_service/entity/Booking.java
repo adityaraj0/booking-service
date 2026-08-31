@@ -26,11 +26,6 @@ public class Booking {
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "product_type_id", nullable = true)
-//    private ProductType productType;
-
-
     private LocalDateTime startTime;
 
     private LocalDateTime endTime;

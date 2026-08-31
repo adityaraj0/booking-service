@@ -2,7 +2,6 @@ package com.adityaraj.booking_service.service;
 
 import com.adityaraj.booking_service.dto.BookingRequest;
 import com.adityaraj.booking_service.dto.BookingResponse;
-import jakarta.transaction.Transactional;
 
 import java.util.List;
 import java.util.UUID;

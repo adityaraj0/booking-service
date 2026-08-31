@@ -2,13 +2,11 @@ package com.adityaraj.booking_service.service.impl;
 
 import com.adityaraj.booking_service.dto.ProductTypeRequest;
 import com.adityaraj.booking_service.dto.ProductTypeResponse;
-import com.adityaraj.booking_service.entity.Booking;
 import com.adityaraj.booking_service.entity.ProductType;
 import com.adityaraj.booking_service.repository.ProductTypeRepository;
 import com.adityaraj.booking_service.service.ProductTypeService;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Service

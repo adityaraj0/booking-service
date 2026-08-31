@@ -24,11 +24,11 @@ public class Product {
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal amount;
 
-    @Column(nullable = false)
-    private Boolean active;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_type_id", nullable = false)
     private ProductType productType;
 
+    @Column(nullable = false)
+    private Boolean active;
+    
 }

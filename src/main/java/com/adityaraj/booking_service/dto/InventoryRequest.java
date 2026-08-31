@@ -1,10 +1,12 @@
 package com.adityaraj.booking_service.dto;
 
 import com.adityaraj.booking_service.entity.Product;
+import lombok.Data;
 
 
 import java.util.UUID;
 
+@Data
 public class InventoryRequest {
     private UUID id;
     private Product product;
