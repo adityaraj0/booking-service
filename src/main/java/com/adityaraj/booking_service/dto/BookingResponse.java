@@ -1,7 +1,6 @@
 package com.adityaraj.booking_service.dto;
 
 import com.adityaraj.booking_service.entity.Product;
-import com.adityaraj.booking_service.entity.ProductType;
 import com.adityaraj.booking_service.entity.enums.Status;
 import lombok.Data;
 
@@ -15,7 +14,6 @@ public class BookingResponse {
     private UUID id;
     private UUID userId;
     private Product product;
-    //private ProductType productType;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private Status status;

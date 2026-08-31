@@ -3,8 +3,10 @@ package com.adityaraj.booking_service.service.impl;
 import com.adityaraj.booking_service.dto.BookingRequest;
 import com.adityaraj.booking_service.dto.BookingResponse;
 import com.adityaraj.booking_service.entity.Booking;
+import com.adityaraj.booking_service.entity.Product;
 import com.adityaraj.booking_service.entity.enums.Status;
 import com.adityaraj.booking_service.repository.BookingRepository;
+import com.adityaraj.booking_service.repository.ProductRepository;
 import com.adityaraj.booking_service.service.BookingService;
 import org.springframework.stereotype.Service;
 
@@ -18,18 +20,23 @@ import java.util.UUID;
 public class BookingServiceImpl implements BookingService {
 
     private final BookingRepository bookingRepository;
+    private final ProductRepository productRepository;
 
 
-    public BookingServiceImpl(BookingRepository bookingRepository) {
+    public BookingServiceImpl(
+            BookingRepository bookingRepository,
+            ProductRepository productRepository) {
         this.bookingRepository = bookingRepository;
+        this.productRepository = productRepository;
     }
 
     @Override
     public BookingResponse createBooking(BookingRequest booking) {
         Booking createBooking = new Booking();
         createBooking.setUserId(booking.getUserId());
-        createBooking.setProduct(booking.getProduct());
-        //createBooking.setProductType(booking.getProductType());
+
+        Product product = productRepository.getReferenceById(booking.getProductId());
+        createBooking.setProduct(product);
         createBooking.setStartTime(booking.getStartTime());
         createBooking.setEndTime(booking.getEndTime());
         createBooking.setStatus(Status.CREATED);
@@ -100,7 +107,6 @@ public class BookingServiceImpl implements BookingService {
         bookingResponse.setId(booking.getId());
         bookingResponse.setUserId(booking.getUserId());
         bookingResponse.setProduct(booking.getProduct());
-        //bookingResponse.setProductType(booking.getProductType());
         bookingResponse.setStartTime(booking.getStartTime());
         bookingResponse.setEndTime(booking.getEndTime());
         bookingResponse.setStatus(booking.getStatus());
