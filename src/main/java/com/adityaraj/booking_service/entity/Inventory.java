@@ -11,7 +11,7 @@ import java.util.UUID;
 @Table(name = "inventory", schema = "booking-service")
 public class Inventory {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @OneToOne(fetch = FetchType.LAZY)
@@ -26,4 +26,5 @@ public class Inventory {
 
     @Column(nullable = false)
     private Boolean active;
+
 }

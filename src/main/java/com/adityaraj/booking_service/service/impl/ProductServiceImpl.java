@@ -38,7 +38,6 @@ public class ProductServiceImpl implements ProductService {
 
         ProductType productType = productTypeRepository.getReferenceById(product.getProductTypeId());
         newProduct.setProductType(productType);
-        newProduct.setActive(product.getActive());
 
         Product savedProduct = productRepository.save(newProduct);
         return generateProductResponse(savedProduct);
@@ -89,7 +88,6 @@ public class ProductServiceImpl implements ProductService {
 
         ProductType productType = productTypeRepository.getReferenceById(product.getProductTypeId());
         existingProduct.setProductType(productType);
-        existingProduct.setActive(product.getActive());
 
         Product updateProduct = productRepository.save(existingProduct);
         return generateProductResponse(updateProduct);

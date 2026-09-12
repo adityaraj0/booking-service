@@ -10,6 +10,5 @@ public class ProductRequest {
     private String description;
     private BigDecimal amount;
     private Long productTypeId;
-    private Boolean active;
 
 }
